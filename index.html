@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Make It Strive">
+    <meta property="og:description" content="Collaborations: A Win-Win for Creators">
+    <meta property="og:image" content="https://makeitstrive.github.io/logo.png">
+    <meta property="og:url" content="https://makeitstrive.github.io/">
+    <meta property="og:type" content="website">
     <title>Make It Strive - Empowering Creators</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -20,14 +25,12 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* 50% opacity */
             padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
         }
-
         .navbar ul {
             display: flex;
             gap: 20px;
@@ -41,11 +44,23 @@
             font-family: 'Nunito', sans-serif;
         }
 
+
         .navbar .logo {
             width: 50px;
             height: auto;
         }
 
+        .hamburger {
+            display: none;
+        }
+
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
 
         .page {
             min-height: 100vh; /* Ensures each section fills the screen */
@@ -199,6 +214,74 @@
                 width: 12px;
                 height: 12px;
             }
+            .navbar .logo {
+                width: 50px;
+                height: auto;
+                margin-left: -80%;
+            }
+
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 15px;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+                width: 80px; /* Adjust as needed */
+            }
+
+            /* Center the hamburger icon */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                position: absolute;
+                top: 105%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 100; /* Ensure it's above other elements */
+            }
+
+
+            .hamburger .bar {
+                width: 25px;
+                height: 3px;
+                background-color: #fff;
+                border-radius: 5px;
+            }
+
+            .navbar ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                transition: max-height 0.5s ease-in-out;
+                overflow: hidden;
+                max-height: 0; /* Initially hidden */
+            }
+
+            .navbar.active ul {
+                display: flex; /* Show menu when active */
+                max-height: 500px;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar ul li a {
+                padding: 10px;
+                width: 100%;
+                text-align: left;
+                font-size: 1em;
+            }
         }
 
         @media (max-width: 480px) {
@@ -216,16 +299,32 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <img src="logo.png" alt="Make It Strive Logo" class="logo">
-        <ul>
-            <li><a href="#welcome">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>    
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+}
+
+    </script>
+    <header class="navbar">
+        <img src="logo.png" alt="Logo" class="logo">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#welcome">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    
+      
       
     <div id="welcome" class="page">
         <img src="logo.png" alt="Make It Strive Logo" class="logo">
@@ -240,10 +339,7 @@
         <p>By merging creativity with innovative tactics, we ensure that your journey remains true to your vision while achieving tangible results. Your success is our mission.</p>
     </div>
 
-    <div id="team" class="page">
-        <h2>Meet the Team</h2>
-        <p>We’re the dedicated team behind Make It Strive. Passionate, creative, and ready to help you succeed!</p>
-    
+    <div id="team" class="page">    
         <div id="team" class="page">
             <h2>Meet the Team</h2>
             <p>We’re the dedicated team behind Make It Strive. Passionate, creative, and ready to help you succeed!</p>
