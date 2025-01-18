@@ -4,15 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make It Strive - Empowering Creators</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         html, body {
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Prevent horizontal scrolling */
             background-color: #000;
-            font-family: Arial, sans-serif;
+            font-family: 'Nunito', Arial, sans-serif; /* Use Nunito as the primary font */
             scroll-behavior: smooth;
         }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* 50% opacity */
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .navbar .logo {
+            width: 50px;
+            height: auto;
+        }
+
 
         .page {
             min-height: 100vh; /* Ensures each section fills the screen */
@@ -24,6 +57,7 @@
             padding: 20px;
             color: #fff;
             box-sizing: border-box;
+            padding-top: 70px;
         }
 
         h1, h2 {
@@ -99,6 +133,47 @@
             transform: scale(1.2);
         }
 
+        /* Adjust the indicator layout */
+        .indicator {
+            position: fixed;
+            top: 50%;
+            right: 8px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .team-section {
+            display: flex;
+            flex-direction: column; /* Stacks team members vertically */
+            align-items: center; /* Centers the content horizontally */
+            gap: 20px; /* Space between team members */
+            padding: 20px 50px;
+        }
+
+        .team-member {
+            text-align: center;
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-description {
+            font-style: italic; /* Makes the text italic */
+        }
+
+
         /* Media Queries */
         @media (max-width: 768px) {
             h1, h2 {
@@ -141,6 +216,17 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <img src="logo.png" alt="Make It Strive Logo" class="logo">
+        <ul>
+            <li><a href="#welcome">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>    
+      
     <div id="welcome" class="page">
         <img src="logo.png" alt="Make It Strive Logo" class="logo">
         <h1>Welcome to Make It Strive</h1>
@@ -153,6 +239,27 @@
         <p>We’re Make It Strive, a dedicated two-man growth marketing team with a passion for empowering creators. With a solid follower base of at least 10,000, we help you turn your influence into income. Our strategies are deeply personalized to fit your niche, ensuring genuine growth and lasting connections.</p>
         <p>By merging creativity with innovative tactics, we ensure that your journey remains true to your vision while achieving tangible results. Your success is our mission.</p>
     </div>
+
+    <div id="team" class="page">
+        <h2>Meet the Team</h2>
+        <p>We’re the dedicated team behind Make It Strive. Passionate, creative, and ready to help you succeed!</p>
+    
+        <div id="team" class="page">
+            <h2>Meet the Team</h2>
+            <p>We’re the dedicated team behind Make It Strive. Passionate, creative, and ready to help you succeed!</p>
+        
+            <div class="team-section">
+                <div class="team-member">
+                    <img src="Joonas.jpg" alt="Team Member 1" class="team-image">
+                    <p class="team-description"><em>" The road to success and the road to failure are almost exactly the same. " – Colin R. Davis</em></p>
+                </div>
+                <div class="team-member">
+                    <img src="Laurynas.jpg" alt="Team Member 2" class="team-image">
+                    <p class="team-description"><em>" The only way you are going to have success is to have lots of failures first. " - Sergey Brin</em></p>
+                </div>
+            </div>
+        </div>
+        
 
     <div id="services" class="page">
         <h2>Our Services</h2>
@@ -189,9 +296,11 @@
     <div class="indicator">
         <div data-page="welcome"></div>
         <div data-page="about"></div>
+        <div data-page="team"></div>
         <div data-page="services"></div>
         <div data-page="contact"></div>
     </div>
+    
 
     <script>
         const pages = document.querySelectorAll('.page');
@@ -218,5 +327,3 @@
     </script>
 </body>
 </html>
-
-
