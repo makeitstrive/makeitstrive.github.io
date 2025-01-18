@@ -11,6 +11,7 @@
             overflow-x: hidden; /* Prevent horizontal scrolling */
             background-color: #000;
             font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         .page {
@@ -35,22 +36,6 @@
             line-height: 1.8;
             max-width: 700px;
             margin: 10px auto;
-        }
-
-        .scroll-link {
-            margin-top: 20px;
-            text-decoration: none;
-            color: #000;
-            background: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .scroll-link:hover {
-            background-color: #ccc;
-            color: #000;
         }
 
         .logo {
@@ -91,6 +76,29 @@
             line-height: 1.5;
         }
 
+        .indicator {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .indicator div {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #555;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .indicator div.active {
+            background-color: #fff;
+            transform: scale(1.2);
+        }
+
         /* Media Queries */
         @media (max-width: 768px) {
             h1, h2 {
@@ -115,9 +123,6 @@
                 padding: 15px;
                 font-size: 0.9em;
             }
-            .scroll-link {
-                padding: 8px 15px;
-            }
         }
     </style>
 </head>
@@ -127,15 +132,12 @@
         <h1>Welcome to Make It Strive</h1>
         <p>Empowering Creators to Monetize Their Passion</p>
         <p>At Make It Strive, we turn your creative potential into measurable success. From audience engagement to sustainable income, we craft tailored strategies that help you grow authentically while maximizing your impact. Let’s build your path to success together.</p>
-        <a href="#about" class="scroll-link">Learn More</a>
     </div>
 
     <div id="about" class="page">
         <h2>About Us</h2>
         <p>We’re Make It Strive, a dedicated two-man growth marketing team with a passion for empowering creators. With a solid follower base of at least 10,000, we help you turn your influence into income. Our strategies are deeply personalized to fit your niche, ensuring genuine growth and lasting connections.</p>
         <p>By merging creativity with innovative tactics, we ensure that your journey remains true to your vision while achieving tangible results. Your success is our mission.</p>
-        <a href="#welcome" class="scroll-link">Back to Welcome</a>
-        <a href="#services" class="scroll-link">Our Services</a>
     </div>
 
     <div id="services" class="page">
@@ -160,18 +162,46 @@
             </div>
         </div>
         <p>Our hands-on approach ensures that every solution is crafted to fit your unique goals and audience. Whether you’re just starting out or looking to scale, we’ve got you covered.</p>
-        <a href="#about" class="scroll-link">Back to About Us</a>
-        <a href="#contact" class="scroll-link">Contact Us</a>
     </div>
 
     <div id="contact" class="page">
         <h2>Contact Us</h2>
         <p>Let’s collaborate to transform your creative vision into sustainable success. Reach out to Make It Strive today!</p>
         <p>Email: <strong>makeitstrive@gmail.com</strong></p>
-        <p>Instagram: <a href="https://instagram.com/makeitstrive"><strong>makeitstrive</strong></a></p>
+        <p>Instagram: <a href="https://instagram.com/makeitstrive" style="color: #fff;"><strong>makeitstrive</strong></a></p>
         <p>Follow us on social media for tips, inspiration, and success stories from creators like you.</p>
-        <a href="#services" class="scroll-link">Back to Our Services</a>
     </div>
+
+    <div class="indicator">
+        <div data-page="welcome"></div>
+        <div data-page="about"></div>
+        <div data-page="services"></div>
+        <div data-page="contact"></div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+        const indicators = document.querySelectorAll('.indicator div');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            pages.forEach(page => {
+                const pageTop = page.offsetTop;
+                const pageHeight = page.offsetHeight;
+                if (window.scrollY >= pageTop - pageHeight / 3) {
+                    current = page.getAttribute('id');
+                }
+            });
+
+            indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+                if (indicator.getAttribute('data-page') === current) {
+                    indicator.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
