@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make It Strive - Empowering Creators</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             background-color: #000;
+            font-family: Arial, sans-serif;
         }
+
         .page {
-            height: 100vh;
+            min-height: 100vh; /* Ensures each section fills the screen */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -21,17 +22,21 @@
             text-align: center;
             padding: 20px;
             color: #fff;
+            box-sizing: border-box;
         }
+
         h1, h2 {
             font-size: 2.5em;
             margin: 0;
         }
+
         p {
             font-size: 1.2em;
             line-height: 1.8;
             max-width: 700px;
             margin: 10px auto;
         }
+
         .scroll-link {
             margin-top: 20px;
             text-decoration: none;
@@ -42,15 +47,18 @@
             font-weight: bold;
             transition: background-color 0.3s, color 0.3s;
         }
+
         .scroll-link:hover {
             background-color: #ccc;
             color: #000;
         }
+
         .logo {
             margin-bottom: 20px;
             width: 100px;
             height: auto;
         }
+
         .service-section {
             display: flex;
             flex-wrap: wrap;
@@ -58,6 +66,7 @@
             gap: 20px;
             margin-top: 20px;
         }
+
         .service-block {
             background: #222;
             padding: 20px;
@@ -67,16 +76,48 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s;
         }
+
         .service-block:hover {
             background-color: #333;
         }
+
         .service-block h3 {
             margin-bottom: 10px;
             font-size: 1.5em;
         }
+
         .service-block p {
             font-size: 1em;
             line-height: 1.5;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            h1, h2 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .logo {
+                width: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1, h2 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            .service-block {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+            .scroll-link {
+                padding: 8px 15px;
+            }
         }
     </style>
 </head>
