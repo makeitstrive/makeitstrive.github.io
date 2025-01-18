@@ -20,48 +20,6 @@
             scroll-behavior: smooth;
         }
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-        }
-        .navbar ul {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .navbar ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-family: 'Nunito', sans-serif;
-        }
-
-
-        .navbar .logo {
-            width: 50px;
-            height: auto;
-        }
-
-        .hamburger {
-            display: none;
-        }
-
-
-        .hamburger .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-
         .page {
             min-height: 100vh; /* Ensures each section fills the screen */
             display: flex;
@@ -214,73 +172,10 @@
                 width: 12px;
                 height: 12px;
             }
-            .navbar .logo {
-                width: 50px;
-                height: auto;
-                margin-left: -80%;
-            }
-
-            .navbar {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 15px;
-            }
 
             .logo {
                 margin-bottom: 10px;
                 width: 80px; /* Adjust as needed */
-            }
-
-            /* Center the hamburger icon */
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                cursor: pointer;
-                position: absolute;
-                top: 105%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 100; /* Ensure it's above other elements */
-            }
-
-
-            .hamburger .bar {
-                width: 25px;
-                height: 3px;
-                background-color: #fff;
-                border-radius: 5px;
-            }
-
-            .navbar ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                transition: max-height 0.5s ease-in-out;
-                overflow: hidden;
-                max-height: 0; /* Initially hidden */
-            }
-
-            .navbar.active ul {
-                display: flex; /* Show menu when active */
-                max-height: 500px;
-            }
-
-            .navbar ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            .navbar ul li a {
-                padding: 10px;
-                width: 100%;
-                text-align: left;
-                font-size: 1em;
             }
         }
 
@@ -299,33 +194,6 @@
     </style>
 </head>
 <body>
-    <script>
-        function toggleMenu() {
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('active');
-}
-
-    </script>
-    <header class="navbar">
-        <img src="logo.png" alt="Logo" class="logo">
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#welcome">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
-    
-      
-      
     <div id="welcome" class="page">
         <img src="logo.png" alt="Make It Strive Logo" class="logo">
         <h1>Welcome to Make It Strive</h1>
