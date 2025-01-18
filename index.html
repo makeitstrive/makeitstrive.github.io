@@ -8,15 +8,14 @@
         html, body {
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Prevent vertical and horizontal scrolling */
+            overflow: hidden; /* Prevent scrolling on the entire page */
             background-color: #000;
             font-family: Arial, sans-serif;
-            height: 100%; /* Ensure the body takes up the full height of the viewport */
+            height: 100%;
         }
 
-
         .page {
-            min-height: 100vh; /* Ensures each section fills the screen */
+            min-height: 100vh; /* Keeps each page to fill the screen */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -25,7 +24,11 @@
             padding: 20px;
             color: #fff;
             box-sizing: border-box;
-            position: relative; /* Needed for arrow positioning */
+        }
+
+        #services {
+            overflow-y: auto; /* Allow vertical scrolling specifically for #services */
+            max-height: 100vh; /* Prevent it from exceeding the viewport height */
         }
 
         h1, h2 {
@@ -55,6 +58,7 @@
             background-color: #ccc;
             color: #000;
         }
+
 
         .logo {
             margin-bottom: 20px;
