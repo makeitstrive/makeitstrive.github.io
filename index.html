@@ -8,14 +8,13 @@
         html, body {
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Prevent scrolling on the entire page */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             background-color: #000;
             font-family: Arial, sans-serif;
-            height: 100%;
         }
 
         .page {
-            min-height: 100vh; /* Keeps each page to fill the screen */
+            min-height: 100vh; /* Ensures each section fills the screen */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -25,13 +24,6 @@
             color: #fff;
             box-sizing: border-box;
         }
-
-        #services {
-            overflow-y: auto; /* Allow vertical scrolling */
-            max-height: 100vh; /* Prevent it from exceeding the viewport height */
-            padding-top: 50px; /* Adjust this value to move the content down */
-        }
-
 
         h1, h2 {
             font-size: 2.5em;
@@ -60,7 +52,6 @@
             background-color: #ccc;
             color: #000;
         }
-
 
         .logo {
             margin-bottom: 20px;
@@ -98,23 +89,6 @@
         .service-block p {
             font-size: 1em;
             line-height: 1.5;
-        }
-
-        /* Back Arrow Styling */
-        .arrow {
-            position: absolute;
-            top: 40px; /* Adjusted spacing from the top */
-            left: 40px; /* Adjusted spacing from the left */
-            width: 20px;
-            height: 20px;
-            border-top: 3px solid white;
-            border-left: 3px solid white;
-            transform: rotate(-45deg);
-            cursor: pointer;
-        }
-
-        .arrow:hover {
-            opacity: 0.8;
         }
 
         /* Media Queries */
@@ -157,15 +131,14 @@
     </div>
 
     <div id="about" class="page">
-        <a href="#welcome" class="arrow" title="Back to Welcome"></a>
         <h2>About Us</h2>
         <p>We’re Make It Strive, a dedicated two-man growth marketing team with a passion for empowering creators. With a solid follower base of at least 10,000, we help you turn your influence into income. Our strategies are deeply personalized to fit your niche, ensuring genuine growth and lasting connections.</p>
         <p>By merging creativity with innovative tactics, we ensure that your journey remains true to your vision while achieving tangible results. Your success is our mission.</p>
+        <a href="#welcome" class="scroll-link">Back to Welcome</a>
         <a href="#services" class="scroll-link">Our Services</a>
     </div>
 
     <div id="services" class="page">
-        <a href="#about" class="arrow" title="Back to About Us"></a>
         <h2>Our Services</h2>
         <p>At Make It Strive, we offer a range of services tailored to your growth needs:</p>
         <div class="service-section">
@@ -187,16 +160,18 @@
             </div>
         </div>
         <p>Our hands-on approach ensures that every solution is crafted to fit your unique goals and audience. Whether you’re just starting out or looking to scale, we’ve got you covered.</p>
+        <a href="#about" class="scroll-link">Back to About Us</a>
         <a href="#contact" class="scroll-link">Contact Us</a>
     </div>
 
     <div id="contact" class="page">
-        <a href="#services" class="arrow" title="Back to Our Services"></a>
         <h2>Contact Us</h2>
         <p>Let’s collaborate to transform your creative vision into sustainable success. Reach out to Make It Strive today!</p>
         <p>Email: <strong>makeitstrive@gmail.com</strong></p>
         <p>Instagram: <a href="https://instagram.com/makeitstrive"><strong>makeitstrive</strong></a></p>
         <p>Follow us on social media for tips, inspiration, and success stories from creators like you.</p>
+        <a href="#services" class="scroll-link">Back to Our Services</a>
     </div>
 </body>
 </html>
+
